@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Anuska A | Portfolio</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px);
+            --bg: #0b0b14;
+            --card: rgba(20, 18, 38, .55);
+            --bd: rgba(255, 255, 255, .1);
+            --text: #f2f0fa;
+            --muted: #a09cb8;
+            --a: #ff5fa2;
+            --b: #7c6cff;
+            --c: #2de2e6
+        }
+
+        @media (prefers-color-scheme:light) {
+            :root:not([data-theme="dark"]) {
+                --bg: #f6f4ff;
+                --card: rgba(255, 255, 255, .8);
+                --bd: rgba(60, 40, 120, .14);
+                --text: #1b1630;
+                --muted: #625c7c;
+                --a: #d6246e;
+                --b: #5b4be0;
+                --c: #0a9ca3
+            }
+        }
+
+        :root[data-theme="light"] {
+            --bg: #f6f4ff;
+            --card: rgba(255, 255, 255, .8);
+            --bd: rgba(60, 40, 120, .14);
+            --text: #1b1630;
+            --muted: #625c7c;
+            --a: #d6246e;
+            --b: #5b4be0;
+            --c: #0a9ca3
+        }
+
+        html {
+            scroll-padding-top: 70px;
+            scroll-behavior: smooth
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 400 16px/1.65 Inter, system-ui, Arial, sans-serif;
+            overflow-x: hidden
+        }
+
+        h1,
+        h2,
+        h3,
+        .g {
+            font-family: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        body::before,
+        body::after {
+            content: "";
+            position: fixed;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: .35;
+            z-index: -1
+        }
+
+        body::before {
+            background: var(--b);
+            top: -120px;
+            left: -120px
+        }
+
+        body::after {
+            background: var(--a);
+            bottom: -140px;
+            right: -100px
+        }
+
+        nav {
+            position: sticky;
+            top: calc(env(safe-area-inset-top, 0px) + 10px);
+            z-index: 9;
+            display: flex;
+            justify-content: center;
+            padding: 0 12px
+        }
+
+        nav div {
+            display: flex;
+            gap: 4px;
+            padding: 6px;
+            border: 1px solid var(--bd);
+            background: var(--card);
+            backdrop-filter: blur(14px);
+            border-radius: 999px;
+            max-width: 100%;
+            overflow-x: auto
+        }
+
+        nav a {
+            padding: 7px 14px;
+            border-radius: 999px;
+            font: 500 13px 'Space Grotesk', system-ui, sans-serif;
+            color: var(--muted);
+            white-space: nowrap
+        }
+
+        nav a:hover {
+            background: var(--bd);
+            color: var(--text)
+        }
+
+        .wrap {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px
+        }
+
+        .hero {
+            min-height: 82vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 50px 0
+        }
+
+        .hi {
+            color: var(--c);
+            font: 500 15px 'Space Grotesk', sans-serif;
+            letter-spacing: .14em;
+            text-transform: uppercase
+        }
+
+        h1 {
+            font-size: clamp(52px, 13vw, 128px);
+            line-height: .95;
+            margin: 10px 0 18px;
+            font-weight: 700;
+            letter-spacing: -.03em;
+            background: linear-gradient(100deg, var(--a), var(--b) 55%, var(--c));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent
+        }
+
+        .role {
+            font: 500 clamp(18px, 3vw, 24px) 'Space Grotesk', sans-serif;
+            margin: 0
+        }
+
+        .loc {
+            color: var(--muted);
+            margin: 6px 0 24px
+        }
+
+        .row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 11px 22px;
+            border-radius: 12px;
+            border: 1px solid var(--bd);
+            background: var(--card);
+            font: 500 14px 'Space Grotesk', sans-serif
+        }
+
+        .btn.p {
+            background: linear-gradient(100deg, var(--a), var(--b));
+            border: 0;
+            color: #fff
+        }
+
+        .btn:hover {
+            transform: translateY(-2px)
+        }
+
+        .btn {
+            transition: transform .2s
+        }
+
+        .av {
+            display: inline-flex;
+            width: 92px;
+            height: 92px;
+            border-radius: 26px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 22px;
+            font: 700 34px 'Space Grotesk', sans-serif;
+            color: #fff;
+            background: linear-gradient(135deg, var(--a), var(--b));
+            transform: rotate(-6deg);
+            box-shadow: 0 12px 40px -10px var(--a)
+        }
+
+        h2 {
+            font-size: clamp(26px, 4vw, 34px);
+            margin: 70px 0 22px;
+            letter-spacing: -.01em
+        }
+
+        h2 span {
+            color: var(--a);
+            font-size: .55em;
+            vertical-align: middle;
+            margin-right: 10px;
+            letter-spacing: .1em
+        }
+
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 14px
+        }
+
+        .box {
+            background: var(--card);
+            border: 1px solid var(--bd);
+            border-radius: 20px;
+            padding: 22px;
+            backdrop-filter: blur(10px)
+        }
+
+        .s2 {
+            grid-column: span 2
+        }
+
+        .s3 {
+            grid-column: span 3
+        }
+
+        .s4 {
+            grid-column: span 4
+        }
+
+        .s6 {
+            grid-column: span 6
+        }
+
+        @media(max-width:700px) {
+
+            .s2,
+            .s3,
+            .s4 {
+                grid-column: span 6
+            }
+        }
+
+        h3 {
+            margin: 0 0 6px;
+            font-size: 19px
+        }
+
+        .m {
+            color: var(--muted);
+            margin: 0;
+            font-size: 15px
+        }
+
+        .big {
+            font: 700 44px/1 'Space Grotesk', sans-serif;
+            background: linear-gradient(100deg, var(--a), var(--c));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 6px
+        }
+
+        .lbl {
+            font: 500 12px 'Space Grotesk', sans-serif;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: var(--c);
+            margin-bottom: 8px
+        }
+
+        .chip {
+            display: inline-block;
+            padding: 6px 14px;
+            border-radius: 999px;
+            border: 1px solid var(--bd);
+            background: var(--card);
+            font: 500 14px 'Space Grotesk', sans-serif;
+            margin: 4px 6px 0 0
+        }
+
+        .tl {
+            border-left: 2px solid var(--bd);
+            margin-left: 6px;
+            padding-left: 22px
+        }
+
+        .tl .it {
+            position: relative;
+            margin-bottom: 18px
+        }
+
+        .tl .it::before {
+            content: "";
+            position: absolute;
+            left: -29px;
+            top: 6px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--a);
+            box-shadow: 0 0 0 4px var(--bg)
+        }
+
+        .ct a {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 13px 0;
+            border-bottom: 1px solid var(--bd);
+            flex-wrap: wrap
+        }
+
+        .ct a:last-child {
+            border: 0
+        }
+
+        .ct a:hover b {
+            color: var(--a)
+        }
+
+        .ct span {
+            color: var(--muted)
+        }
+
+        .ct b {
+            font-weight: 500;
+            word-break: break-all
+        }
+
+        footer {
+            text-align: center;
+            color: var(--muted);
+            padding: 50px 0 30px;
+            font-size: 14px
+        }
+
+        .prog {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            width: 100%;
+            transform-origin: 0 50%;
+            transform: scaleX(0);
+            background: linear-gradient(90deg, var(--a), var(--b), var(--c));
+            z-index: 20
+        }
+
+        html.js .rv {
+            opacity: 0;
+            transform: translateY(46px) scale(.98);
+            transition: opacity .8s ease, transform .8s cubic-bezier(.2, .7, .2, 1);
+            transition-delay: var(--d, 0s)
+        }
+
+        html.js .rv.in {
+            opacity: 1;
+            transform: none
+        }
+
+        nav a.on {
+            background: linear-gradient(100deg, var(--a), var(--b));
+            color: #fff
+        }
+
+        .hero {
+            transition: opacity .1s linear
+        }
+
+        .cue {
+            margin-top: 46px;
+            color: var(--muted);
+            font: 500 13px 'Space Grotesk', sans-serif;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .cue i {
+            display: block;
+            width: 22px;
+            height: 36px;
+            border: 2px solid var(--muted);
+            border-radius: 12px;
+            position: relative
+        }
+
+        .cue i::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 6px;
+            width: 4px;
+            height: 7px;
+            margin-left: -2px;
+            border-radius: 2px;
+            background: var(--a);
+            animation: wheel 1.6s infinite
+        }
+
+        @keyframes wheel {
+            0% {
+                opacity: 1;
+                transform: translateY(0)
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(14px)
+            }
+        }
+
+        .tl {
+            position: relative;
+            border-left: 0
+        }
+
+        .tl::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--bd)
+        }
+
+        .tl::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: var(--fill, 0%);
+            background: linear-gradient(var(--a), var(--b))
+        }
+
+        .box {
+            transition: transform .3s, border-color .3s
+        }
+
+        .box:hover {
+            transform: translateY(-4px);
+            border-color: var(--a)
+        }
+
+        @media (prefers-reduced-motion:reduce) {
+            html.js .rv {
+                opacity: 1;
+                transform: none;
+                transition: none
+            }
+
+            .cue i::after {
+                animation: none
+            }
+
+            html {
+                scroll-behavior: auto
+            }
+        }
+
+        #gl {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="gl" aria-hidden="true"></canvas>
+    <div class="prog" id="prog"></div>
+    <nav>
+        <div>
+            <a href="#top">Home</a><a href="#about">About</a><a href="#education">Education</a><a
+                href="#work">Work</a><a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <div class="wrap">
+        <header class="hero" id="top">
+            <div class="av">AA</div>
+            <div class="hi">Hello, I'm</div>
+            <h1>Anuska A</h1>
+            <p class="role">B.E. CSD Student · AI/ML Enthusiast</p>
+            <p class="loc">Coimbatore, Tamil Nadu</p>
+            <div class="row">
+                <a class="btn p" href="#contact">Contact me</a>
+                <a class="btn" href="https://github.com/anuskaashokkumar-commits" target="_blank"
+                    rel="noopener">GitHub</a>
+                <a class="btn" href="https://www.linkedin.com/in/anuskaashokkumar" target="_blank"
+                    rel="noopener">LinkedIn</a>
+            </div>
+            <div class="cue"><i></i>Scroll</div>
+        </header>
+
+        <h2 id="about"><span>01</span>About</h2>
+        <div class="bento">
+            <div class="box s4">
+                <div class="lbl">Who I am</div>
+                <p style="margin:0 0 10px">I'm a B.E. CSD student at SNS College of Technology with a growing interest
+                    in artificial intelligence and machine learning. I'm building my foundation in Python and learning
+                    by working on practical projects.</p>
+                <p style="margin:0">I recently completed an AI/ML internship at Appin Technology. Outside academics, I
+                    play badminton, which keeps me focused and teaches me teamwork.</p>
+            </div>
+            <div class="box s2">
+                <div class="lbl">Career goal</div>
+                <p class="m">To grow into an AI/ML professional, building useful data-driven solutions while always
+                    learning new skills.</p>
+            </div>
+            <div class="box s2">
+                <div class="big" data-n="8.5" data-d="1">8.5</div>
+                <p class="m">CGPA in B.E. CSD</p>
+            </div>
+            <div class="box s2">
+                <div class="big" data-n="31" data-d="0">31</div>
+                <p class="m">Days of AI/ML internship</p>
+            </div>
+            <div class="box s2">
+                <div class="lbl">Skills</div><span class="chip">Python (Basics)</span><span class="chip">AI / ML</span>
+            </div>
+        </div>
+
+        <h2 id="education"><span>02</span>Education</h2>
+        <div class="box">
+            <div class="tl">
+                <div class="it">
+                    <h3>B.E. Computer Science &amp; Design (CSD)</h3>
+                    <p class="m">SNS College of Technology · CGPA 8.5</p>
+                </div>
+                <div class="it">
+                    <h3>Class XII</h3>
+                    <p class="m">Sri Vidya Mandhir Matric Hr. Sec. School · 167.5</p>
+                </div>
+                <div class="it" style="margin:0">
+                    <h3>Class X</h3>
+                    <p class="m">Sri Vidya Mandhir Matric Hr. Sec. School</p>
+                </div>
+            </div>
+        </div>
+
+        <h2 id="work"><span>03</span>Projects &amp; Experience</h2>
+        <div class="bento">
+            <div class="box s3">
+                <div class="lbl">Project</div>
+                <h3>FarmAdvisory</h3>
+                <p class="m">A project aimed at supporting farmers with helpful advisory information.</p>
+            </div>
+            <div class="box s3">
+                <div class="lbl">Project</div>
+                <h3>G2</h3>
+                <p class="m">Academic project work. Details coming soon.</p>
+            </div>
+            <div class="box s4">
+                <div class="lbl">Internship</div>
+                <h3>AI/ML Intern · Appin Technology</h3>
+                <p class="m">31 days of hands-on exposure to AI and machine learning work.</p>
+            </div>
+            <div class="box s6">
+                <div class="lbl">Certificates</div>
+                <div class="tl" style="margin-top:14px">
+                    <div class="it">
+                        <h3>Databricks Accredited Generative AI Fundamentals</h3>
+                        <p class="m">Databricks Academy · October 2025</p>
+                    </div>
+                    <div class="it">
+                        <h3>Python Course for Beginners With Certification: Mastering the Essentials</h3>
+                        <p class="m">Scaler Topics · October 2025 · 121 video tutorials, 16 modules, 10 challenges</p>
+                    </div>
+                    <div class="it" style="margin:0">
+                        <h3>Enterprise Design Thinking Practitioner</h3>
+                        <p class="m">Design thinking certification</p>
+                    </div>
+                </div>
+            </div>
+            <div class="box s2">
+                <div class="lbl">Beyond code</div><span class="chip">Badminton</span>
+                <div style="margin-top:12px"><span class="chip">English</span><span class="chip">Tamil</span></div>
+            </div>
+        </div>
+
+        <h2 id="contact"><span>04</span>Contact</h2>
+        <div class="box ct">
+            <a href="mailto:anuskaashokkumar@gmail.com"><span>Email</span><b>anuskaashokkumar@gmail.com</b></a>
+            <a href="tel:+918667632525"><span>Phone</span><b>+91 86676 32525</b></a>
+            <a href="https://www.linkedin.com/in/anuskaashokkumar" target="_blank"
+                rel="noopener"><span>LinkedIn</span><b>linkedin.com/in/anuskaashokkumar</b></a>
+            <a href="https://github.com/anuskaashokkumar-commits" target="_blank"
+                rel="noopener"><span>GitHub</span><b>github.com/anuskaashokkumar-commits</b></a>
+        </div>
+        <footer>© manny.i· Coimbatore</footer>
+    </div>
+
+    <script>
+        (function () {
+            var d = document.documentElement; d.classList.add('js');
+            var rm = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+            var els = document.querySelectorAll('.hero>*,h2,.box');
+            els.forEach(function (e, i) { e.classList.add('rv'); var sib = e.parentElement.querySelectorAll(':scope>.rv'); e.style.setProperty('--d', (Array.prototype.indexOf.call(sib, e) % 4) * 0.1 + 's') });
+            var io = new IntersectionObserver(function (en) { en.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('in'); if (x.target.querySelector && x.target.querySelector('.big')) count(x.target.querySelector('.big')); if (x.target.classList.contains('big')) count(x.target); io.unobserve(x.target) } }) }, { threshold: .15 });
+            els.forEach(function (e) { io.observe(e) });
+            function count(b) {
+                if (b.done || rm) return; b.done = 1; var n = parseFloat(b.dataset.n), dec = +b.dataset.d, t0 = null;
+                function f(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 1200, 1); b.textContent = (n * (1 - Math.pow(1 - p, 3))).toFixed(dec); if (p < 1) requestAnimationFrame(f) } requestAnimationFrame(f)
+            }
+            var prog = document.getElementById('prog'), hero = document.querySelector('.hero'), tl = document.querySelectorAll('.tl'),
+                links = [].slice.call(document.querySelectorAll('nav a')), secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')) });
+            function onS() {
+                var y = window.scrollY, h = d.scrollHeight - innerHeight; prog.style.transform = 'scaleX(' + (h > 0 ? y / h : 0) + ')';
+                if (!rm) { hero.style.transform = 'translateY(' + (y * .25) + 'px)'; hero.style.opacity = Math.max(0, 1 - y / (innerHeight * .9)) }
+                d.style.setProperty('--py', (y * -.15) + 'px');
+                tl.forEach(function (t) { var r = t.getBoundingClientRect(), p = Math.min(1, Math.max(0, (innerHeight * .75 - r.top) / r.height)); t.style.setProperty('--fill', (p * 100) + '%') });
+                var cur = 0; secs.forEach(function (s, i) { if (s && s.getBoundingClientRect().top < innerHeight * .4) cur = i });
+                if (innerHeight + y >= d.scrollHeight - 4) cur = secs.length - 1;
+                links.forEach(function (a, i) { a.classList.toggle('on', i === cur) })
+            }
+            addEventListener('scroll', onS, { passive: true }); addEventListener('resize', onS); onS();
+        })();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        (function () {
+            var cv = document.getElementById('gl'); if (!window.THREE || !cv) return;
+            var rm = matchMedia('(prefers-reduced-motion:reduce)').matches, R;
+            try { R = new THREE.WebGLRenderer({ canvas: cv, alpha: true, antialias: true }) } catch (e) { cv.style.display = 'none'; return }
+            R.setPixelRatio(Math.min(devicePixelRatio, 2));
+            var S = new THREE.Scene(), C = new THREE.PerspectiveCamera(60, 1, .1, 200), root = document.documentElement;
+            function col(n) { return new THREE.Color(getComputedStyle(root).getPropertyValue(n).trim() || '#ffffff') }
+            var objs = [];
+            function mk(g, v, side, z) { var m = new THREE.MeshBasicMaterial({ color: col(v), wireframe: true, transparent: true, opacity: .6 }); var o = new THREE.Mesh(g, m); o.position.z = z; o.userData = { v: v, side: side, z: z }; S.add(o); objs.push(o) }
+            mk(new THREE.TorusKnotGeometry(1.4, .4, 120, 16), '--a', 1, -6);
+            mk(new THREE.IcosahedronGeometry(1.8, 1), '--b', -1, -22);
+            mk(new THREE.TorusGeometry(1.7, .5, 16, 48), '--c', 1, -38);
+            mk(new THREE.DodecahedronGeometry(1.8), '--a', -1, -54);
+            mk(new THREE.OctahedronGeometry(1.8), '--b', 1, -70);
+            var N = 1400, pos = new Float32Array(N * 3);
+            for (var i = 0; i < N; i++) { pos[i * 3] = (Math.random() - .5) * 44; pos[i * 3 + 1] = (Math.random() - .5) * 30; pos[i * 3 + 2] = 8 - Math.random() * 86 }
+            var pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+            var pm = new THREE.PointsMaterial({ color: col('--c'), size: .07, transparent: true, opacity: .75 }), pts = new THREE.Points(pg, pm); S.add(pts);
+            function recolor() { objs.forEach(function (o) { o.material.color = col(o.userData.v) }); pm.color = col('--c') }
+            try { matchMedia('(prefers-color-scheme:dark)').addEventListener('change', function () { setTimeout(recolor, 50) }) } catch (e) { }
+            var wide = true;
+            function size() {
+                var w = innerWidth, h = innerHeight; R.setSize(w, h, false); C.aspect = w / h; C.updateProjectionMatrix(); wide = w / h > 1;
+                objs.forEach(function (o) { o.position.x = o.userData.side * (wide ? 3.4 : 1.1); o.position.y = wide ? 0 : 2.2; o.scale.setScalar(wide ? 1 : .75); o.material.opacity = wide ? .6 : .4 })
+            }
+            size(); addEventListener('resize', size);
+            var mx = 0, my = 0, tx = 0, ty = 0, cz = 0;
+            addEventListener('pointermove', function (e) { tx = e.clientX / innerWidth * 2 - 1; ty = e.clientY / innerHeight * 2 - 1 }, { passive: true });
+            function loop(t) {
+                requestAnimationFrame(loop);
+                var h = root.scrollHeight - innerHeight, p = h > 0 ? Math.min(1, Math.max(0, scrollY / h)) : 0, tz = -p * 64;
+                cz += (tz - cz) * .07; mx += (tx - mx) * .05; my += (ty - my) * .05;
+                C.position.set(mx * .8, -my * .5 + Math.sin(p * 7) * .4, cz); C.lookAt(mx * .4, -my * .3, cz - 10);
+                var k = rm ? 0 : t * .0004;
+                objs.forEach(function (o, i) {
+                    var d = Math.abs(o.userData.z - cz);
+                    o.rotation.x = k * (i % 2 ? -1 : 1) + p * 4 + i; o.rotation.y = k * 1.4 + p * 3;
+                    var base = wide ? .6 : .4; o.material.opacity = base * Math.max(.12, 1 - d / 26)
+                });
+                pts.rotation.z = k * .15;
+                R.render(S, C)
+            }
+            requestAnimationFrame(loop);
+            if (matchMedia('(hover:hover)').matches && !rm) {
+                document.querySelectorAll('.box').forEach(function (b) {
+                    b.addEventListener('pointermove', function (e) { var r = b.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; b.style.transition = 'transform .1s'; b.style.transform = 'perspective(700px) rotateX(' + (-y * 8) + 'deg) rotateY(' + (x * 10) + 'deg) translateY(-4px)' });
+                    b.addEventListener('pointerleave', function () { b.style.transition = ''; b.style.transform = '' })
+                })
+            }
+        })();
+    </script>
+</body>
+
+</html>
